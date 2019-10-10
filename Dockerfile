@@ -44,6 +44,7 @@ RUN pip3 install pandas==0.23.0 numpy==1.14.3 scikit-learn==0.19.1 tqdm==4.26.0 
 
 RUN pip3 install --pre xgboost==0.82
 RUN pip3 install psycopg2-binary
+RUN pip3 install kts
 
 RUN pip3 install ipython[all]
 ENV NVIDIA_VISIBLE_DEVICES all
