@@ -1,9 +1,12 @@
 *.ipynb_checkpoints*
 *.csv
 *DS_Store*
-/data*
+<<<<<<< HEAD
 /lib*
 /bin*
 /etc*
 pyvenv.cfg
 /share*
+=======
+
+>>>>>>> 1e2e66082bce5112fdf83dd5ee8983185f7dee3e
