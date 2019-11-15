@@ -1,4 +1,9 @@
 *.ipynb_checkpoints*
 *.csv
 *DS_Store*
-/data
+/data*
+/lib*
+/bin*
+/etc*
+pyvenv.cfg
+/share*
