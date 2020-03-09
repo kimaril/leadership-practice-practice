@@ -1,17 +1,14 @@
 *.ipynb_checkpoints*
 *.csv
 *DS_Store*
-<<<<<<< HEAD
 /lib*
 /bin*
 /etc*
 /leadership*
 *.pyc
 pyvenv.cfg
-/share*
-/data/raw_data/vk-api-saved/*
+/share
+*/raw_data/*
+*/submission/*
 /notebooks/no_execute_errors.txt
 */vk_api_scrap.ipynb
-====
-
->>>>>>> 1e2e66082bce5112fdf83dd5ee8983185f7dee3e
