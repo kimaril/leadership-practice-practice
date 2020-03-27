@@ -1,16 +1,31 @@
 # Description
 
+Social network leaders detection & classification.
+
 The project from [here](https://docs.google.com/spreadsheets/d/1Wmich78faSgrLE6UtKZ5IJPir7sM4vjnoxIMZj4uckM/edit#gid=564880975)
 
 Trello - [here](https://youtu.be/dQw4w9WgXcQ)
 
 Bonusly - [here](https://youtu.be/dQw4w9WgXcQ)
 
+# Python ```venv```
+Run the following script inside project root directory:
+
+```python3 -m venv leadership && source leadership/bin/activate```
+```pip install -r requirements.txt```
+
+Run Jupyter Notebook.
+You're awesome!
+
 
 # Docker
 
 ### Explanation
-Dockerfile in this repository allows to create a docker container with all required software to run all research stuff in /research. This container is using nvidia-docker stuff for cuda purposes
+Dockerfile in this repository allows to create a docker container with all required software to run all research stuff in /research. This container is using nvidia-docker stuff for CUDA.
+
+# TODO
+Добавить .sh скрипт для установки nvidia-container-toolkit.
+
 
 ### Pulling
 
