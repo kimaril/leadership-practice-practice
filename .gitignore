@@ -1,4 +1,7 @@
+*src/old*
 *.ipynb_checkpoints*
+*data/vk*
+*/*.log
 *.csv
 *DS_Store*
 /lib*

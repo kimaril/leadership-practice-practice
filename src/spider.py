@@ -6,11 +6,14 @@ from urllib.parse import urlsplit
 import pandas as pd
 from tqdm import tqdm
 import os
+from selenium.webdriver.firefox.options import Options
 import time
 
 class OAuthHandler:
     def __init__(self, login: str, password: str) -> str:
-        self.driver = webdriver.Firefox()
+        self.options = Options()
+        self.options.headless = True
+        self.driver = webdriver.Firefox(options=self.options)
         self.login_xpath = '/html/body/div/div/div/div[2]/form/div/div/input[6]'
         self.password_xpath = '/html/body/div/div/div/div[2]/form/div/div/input[7]'
         self.button_xpath = '//*[@id="install_allow"]'
@@ -39,8 +42,8 @@ def get_token(APP_ID: int) -> str:
     token = urlsplit(response, scheme='https').fragment.split('&')[0].split('=')[-1]
     return token
 
-def get_single_leader(uid: str, access_token: str, attempt: int=5, app_id=7356989) -> dict:
-    url_single_execute = f"https://api.vk.com/method/execute.singleLeader?user={app_id}&access_token={access_token}&v=5.103"
+def get_single_leader(uid: str, access_token: str, attempt: int=5) -> dict:
+    url_single_execute = f"https://api.vk.com/method/execute.singleLeader?user={{}}&access_token={access_token}&v=5.103"
 #     print(url_single_execute)
 
     for i in range(attempt):
@@ -54,11 +57,8 @@ def get_single_leader(uid: str, access_token: str, attempt: int=5, app_id=735698
 def save_single_leader(uid: str, token: str, path: str):
     data = get_single_leader(uid, token)
     assert len(data["response"]) == 5
-    if not os.path.isfile(f"{path}/{uid}.json"):
-        with open(f"{path}/{uid}.json", 'w') as f:
-            f.write(json.dumps(data))
-    else:
-        pass
+    with open(f"{path}/{uid}.json", 'w') as f:
+        f.write(json.dumps(data))
 
 def scrap():
     dirname = input('Name of directory to save to (default \'leadership-practice-practice/data/\'): ')
@@ -66,7 +66,7 @@ def scrap():
     TOKEN = get_token(APP_ID)
     savepath = f"../data/{dirname}"
 
-    users = pd.read_csv("../notebooks/uids_for_vk_scrap.csv")[::-1].uid
+    users = pd.read_csv("../notebooks/uids_for_vk_scrap.csv").iloc[::-1].uid[15000:]
     debug_data = []
     for uid in tqdm(users):
         if not os.path.exists(savepath):
